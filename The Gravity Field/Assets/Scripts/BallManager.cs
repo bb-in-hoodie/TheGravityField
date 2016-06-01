@@ -16,17 +16,27 @@ public class BallManager : MonoBehaviour {
 	void FixedUpdate ()
 	{
 		float moveHorizontal = Input.GetAxis ("Horizontal");
-        Vector3 movement = new Vector3 (moveHorizontal, 0.0f, 0.0f);
-
-        // move left or right
-        rb.AddForce (movement * speed);
-
+		
+		// move left or right
+		if (moveHorizontal < 0) 
+			Move(-1);
+		else if (moveHorizontal > 0)		
+			Move(1);
+		
         // jump when you press space bar button
         if (Input.GetButton("Jump")) 
-     		rb.AddForce(Vector3.up * jumpSpeed);
+     		Jump();
 	}
-	
 
-	
+	void Move(int direction)
+	{	
+		Vector3 movement = new Vector3 (direction, 0.0f, 0.0f);
+		rb.AddForce (movement * speed);
+	}
 
+	void Jump()
+	{
+		rb.AddForce(Vector3.up * jumpSpeed);
+	}
+		
 }
