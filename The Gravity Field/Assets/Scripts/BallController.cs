@@ -17,7 +17,11 @@ public class BallController : MonoBehaviour {
         rb.AddForce(movement * 2.0f);
         
 	}
-
+    public void resetMove() {
+        movement.x = 0.0f;
+        movement.y = 0.0f;
+        movement.z = 0.0f;
+    }
     public void moveLeft() {
         movement.x = - 1.0f;
     }
