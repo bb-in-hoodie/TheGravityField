@@ -418,6 +418,7 @@ GameObject:
   - 114: {fileID: 423058805}
   - 114: {fileID: 423058804}
   - 95: {fileID: 423058807}
+  - 114: {fileID: 423058808}
   m_Layer: 5
   m_Name: Button_right
   m_TagString: Untagged
@@ -482,18 +483,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 423058805}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1790558555}
-        m_MethodName: moveRight
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &423058805
@@ -546,6 +536,17 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &423058808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 423058802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66381c5ba7cb7444e805209c2cff2cb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &677490027
 GameObject:
   m_ObjectHideFlags: 0
@@ -620,6 +621,7 @@ GameObject:
   - 114: {fileID: 706440674}
   - 114: {fileID: 706440673}
   - 95: {fileID: 706440676}
+  - 114: {fileID: 706440677}
   m_Layer: 5
   m_Name: Button_gravity_down
   m_TagString: Untagged
@@ -737,6 +739,17 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &706440677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 706440671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66381c5ba7cb7444e805209c2cff2cb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &793163832
 GameObject:
   m_ObjectHideFlags: 0
@@ -749,6 +762,7 @@ GameObject:
   - 114: {fileID: 793163835}
   - 114: {fileID: 793163834}
   - 95: {fileID: 793163837}
+  - 114: {fileID: 793163838}
   m_Layer: 5
   m_Name: Button_gravity_up
   m_TagString: Untagged
@@ -866,6 +880,17 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &793163838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 793163832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66381c5ba7cb7444e805209c2cff2cb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &941149263
 GameObject:
   m_ObjectHideFlags: 0
@@ -1026,6 +1051,7 @@ GameObject:
   - 114: {fileID: 952750247}
   - 114: {fileID: 952750246}
   - 95: {fileID: 952750249}
+  - 114: {fileID: 952750250}
   m_Layer: 5
   m_Name: Button_jump
   m_TagString: Untagged
@@ -1090,18 +1116,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 952750247}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1790558555}
-        m_MethodName: jump
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &952750247
@@ -1154,6 +1169,17 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &952750250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 952750244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66381c5ba7cb7444e805209c2cff2cb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1010921017
 GameObject:
   m_ObjectHideFlags: 0
@@ -1166,6 +1192,7 @@ GameObject:
   - 92: {fileID: 1010921020}
   - 124: {fileID: 1010921019}
   - 81: {fileID: 1010921018}
+  - 114: {fileID: 1010921023}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1241,6 +1268,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!114 &1010921023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1010921017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f7b6c0b306a0c544ab264115be5baac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1064900624
 GameObject:
   m_ObjectHideFlags: 0
@@ -1636,6 +1674,7 @@ GameObject:
   - 114: {fileID: 1819086162}
   - 114: {fileID: 1819086161}
   - 95: {fileID: 1819086164}
+  - 114: {fileID: 1819086165}
   m_Layer: 5
   m_Name: Button_left
   m_TagString: Untagged
@@ -1700,29 +1739,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1819086162}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1790558555}
-        m_MethodName: moveLeft
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1819086162
@@ -1775,6 +1792,17 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &1819086165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1819086159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66381c5ba7cb7444e805209c2cff2cb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1922893794
 Prefab:
   m_ObjectHideFlags: 0
