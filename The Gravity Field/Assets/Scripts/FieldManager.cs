@@ -1,49 +1,77 @@
 ﻿using UnityEngine;
 using System.Collections;
-public enum FieldState { NORMAL, STRENGTHENED, WEAKENED  }
+public enum FieldState { NORMAL, STRENGTHENED, WEAKENED }
 
-public class FieldManager : MonoBehaviour {
-    public FieldState fieldState = FieldState.NORMAL;
+public class FieldManager : MonoBehaviour
+{
     public Texture2D strTex, weakTex;
+
+    FieldState fieldState = FieldState.NORMAL;
     Renderer fieldRenderer;
+    Collider collider;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start()
+    {
         fieldRenderer = transform.GetComponent<Renderer>();
-	}
-	
-	// Update is called once per frame
-	void FixedUpdate () {
+        collider = transform.GetComponent<Collider>();
+        DeactivateField();
+    }
 
-        // The code in this function will be replaced with the other code soon
-        if (fieldState == FieldState.NORMAL)
-        {
-            if (fieldRenderer.enabled == true)
-                fieldRenderer.enabled = false;
-        }
-        else if (fieldState == FieldState.STRENGTHENED)
-        {
-            if (fieldRenderer.material.mainTexture == weakTex)
-                fieldRenderer.material.mainTexture = strTex;
-            if (fieldRenderer.enabled == false)
-                fieldRenderer.enabled = true;
-        }
-        else if (fieldState == FieldState.WEAKENED)
-        {
-            if (fieldRenderer.material.mainTexture == strTex)
-                fieldRenderer.material.mainTexture = weakTex;
-            if (fieldRenderer.enabled == false)
-                fieldRenderer.enabled = true;
-        }
+    // Update is called once per frame
+    void FixedUpdate()
+    {
+
     }
 
     void OnTriggerEnter(Collider other)
     {
-        print("OnCollisionEnter : " + other.gameObject.name);
+        print("Gravity Field - OnTriggerEnter : " + other.gameObject.name);
     }
 
     void OnTriggerExit(Collider other)
     {
-        print("OnCollisionExit : " + other.gameObject.name);
+        print("Gravity Field - OnCollisionExit : " + other.gameObject.name);
+    }
+
+    // Strengthened Field Activated : The texture of field is changed and visible, the collider is enabled
+    public void ActivateStrField()
+    {
+        if (fieldState == FieldState.NORMAL)
+        {
+            fieldState = FieldState.STRENGTHENED;
+            fieldRenderer.enabled = true;
+            fieldRenderer.material.mainTexture = strTex;
+            collider.enabled = true;
+            StartCoroutine(WaitAndDeactivate(5.0f)); // Deactivate the field after 5 sec
+        }
+    }
+
+    // Weakened Field Activated : The texture of field is changed and visible, the collider is enabled
+    public void ActivateWeakField()
+    {
+        if (fieldState == FieldState.NORMAL)
+        {
+            fieldState = FieldState.WEAKENED;
+            fieldRenderer.enabled = true;
+            fieldRenderer.material.mainTexture = weakTex;
+            collider.enabled = true;
+            StartCoroutine(WaitAndDeactivate(5.0f)); // Deactivate the field after 5 sec
+        }
+    }
+
+    // Field Deactivated : The field is no longer visible, the collider is disabled
+    public void DeactivateField()
+    {
+        fieldState = FieldState.NORMAL;
+        fieldRenderer.enabled = false;
+        collider.enabled = false;
+    }
+
+    // Deactivate the field after 'waitTime' sec
+    IEnumerator WaitAndDeactivate(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+        DeactivateField();
     }
 }
