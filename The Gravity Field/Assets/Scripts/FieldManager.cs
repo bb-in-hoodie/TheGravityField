@@ -1,19 +1,22 @@
 ﻿using UnityEngine;
 using System.Collections;
-public enum FieldState { NORMAL, STRENGTHENED, WEAKENED  }
+public enum FieldState { NORMAL, STRENGTHENED, WEAKENED }
 
-public class FieldManager : MonoBehaviour {
+public class FieldManager : MonoBehaviour
+{
     public FieldState fieldState = FieldState.NORMAL;
     public Texture2D strTex, weakTex;
     Renderer fieldRenderer;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start()
+    {
         fieldRenderer = transform.GetComponent<Renderer>();
-	}
-	
-	// Update is called once per frame
-	void FixedUpdate () {
+    }
+
+    // Update is called once per frame
+    void FixedUpdate()
+    {
 
         // The code in this function will be replaced with the other code soon
         if (fieldState == FieldState.NORMAL)
