@@ -5,8 +5,10 @@ public class BallController : MonoBehaviour {
 
     // Update is called once per frame
     private Rigidbody rb;
+    
     public Vector3 movement;
-    float jumpAmount = 8.0f;
+    public int jumpSpeed = 250;
+    public int moveSpeed = 2;
 
     void Start() {
         rb = GetComponent<Rigidbody>();
@@ -24,14 +26,14 @@ public class BallController : MonoBehaviour {
         movement.z = 0.0f;
     }
     public void moveLeft() {
-        movement.x = - 1.0f;
+        movement.x = (-1) * moveSpeed;
     }
 
     public void moveRight() {
-        movement.x = + 1.0f;
+        movement.x = moveSpeed;
     }
 
     public void jump() {
-        movement.y = movement.y + jumpAmount;
+        rb.AddForce(Vector3.up * jumpSpeed);
     }
 }
