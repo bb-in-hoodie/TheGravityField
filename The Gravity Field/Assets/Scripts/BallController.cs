@@ -3,13 +3,11 @@ using System.Collections;
 
 public class BallController : MonoBehaviour
 {
-
-    // Update is called once per frame
-    private Rigidbody rb;
-    bool isJumping = false;
+    Rigidbody rb;
+    Vector3 movement;
     int jumpSpeed = 350;
     int moveSpeed = 4;
-    Vector3 movement;
+    bool isJumping = false;
 
     void Start()
     {
@@ -21,23 +19,17 @@ public class BallController : MonoBehaviour
         rb.AddForce(movement * 2.0f);
     }
 
-    public void resetMove()
+    public void ResetMove()
     {
         movement.x = 0.0f;
         movement.y = 0.0f;
     }
-    public void moveLeft()
-    {
-        movement.x = (-1) * moveSpeed;
-    }
-
-    public void moveRight()
-    {
-        movement.x = moveSpeed;
-    }
+    public void MoveLeft() { movement.x = (-1) * moveSpeed; }
+    public void MoveRight() { movement.x = moveSpeed; }
 
     public void jump()
     {
+        // Jumping is only available when the ball is on the ground
         if (!isJumping)
         {
             isJumping = true;
@@ -47,6 +39,7 @@ public class BallController : MonoBehaviour
 
     void OnCollisionEnter(Collision c)
     {
+        // If the ball hits the ground, let 'isJumping' be false
         if (isJumping && c.gameObject.tag == "MAP")
             isJumping = false;
     }
