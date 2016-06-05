@@ -25,8 +25,10 @@ public class ButtonHandler : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
 
 		if(buttonName=="Button_left")
 			linkToScript.moveLeft();
+			/*
 		if(buttonName=="Button_jump")
 			linkToScript.jump();
+			*/
 		if(buttonName=="Button_gravity_up")
 			; //Here goes function increasing gravity
 		if(buttonName=="Button_gravity_down")
