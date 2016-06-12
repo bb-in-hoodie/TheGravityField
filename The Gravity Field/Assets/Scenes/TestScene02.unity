@@ -611,7 +611,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 532690964}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -835,7 +835,7 @@ GameObject:
   - 54: {fileID: 718569090}
   m_Layer: 0
   m_Name: Seesaw_bar
-  m_TagString: Untagged
+  m_TagString: MAP
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -892,7 +892,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 718569085}
   m_LocalRotation: {x: 0, y: 0, z: 0.17364822, w: 0.9848078}
-  m_LocalPosition: {x: 0.03, y: 1.55, z: 10}
+  m_LocalPosition: {x: 0.03, y: 1.55, z: 0}
   m_LocalScale: {x: 8, y: 0.2, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 20}
   m_Children: []
@@ -1474,23 +1474,23 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 433462, guid: fee6e72cd1263dd4da270821b063b779, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 10.92
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 433462, guid: fee6e72cd1263dd4da270821b063b779, type: 2}
       propertyPath: m_LocalRotation.x
-      value: -0.014307684
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 433462, guid: fee6e72cd1263dd4da270821b063b779, type: 2}
       propertyPath: m_LocalRotation.y
-      value: -0.43066427
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 433462, guid: fee6e72cd1263dd4da270821b063b779, type: 2}
       propertyPath: m_LocalRotation.z
-      value: -0.12599832
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 433462, guid: fee6e72cd1263dd4da270821b063b779, type: 2}
       propertyPath: m_LocalRotation.w
-      value: 0.8935592
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 433462, guid: fee6e72cd1263dd4da270821b063b779, type: 2}
       propertyPath: m_RootOrder
@@ -1498,15 +1498,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 433462, guid: fee6e72cd1263dd4da270821b063b779, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -50.626297
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 433462, guid: fee6e72cd1263dd4da270821b063b779, type: 2}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: -12.403299
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 433462, guid: fee6e72cd1263dd4da270821b063b779, type: 2}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -7.7063
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5401448, guid: fee6e72cd1263dd4da270821b063b779, type: 2}
       propertyPath: m_Mass
@@ -1709,7 +1709,7 @@ GameObject:
   - 4: {fileID: 1377274066}
   m_Layer: 0
   m_Name: Seesaw
-  m_TagString: Untagged
+  m_TagString: MAP
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1721,7 +1721,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1377274065}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.01, y: -0.47, z: -10}
+  m_LocalPosition: {x: -4.58, y: -0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -1792,6 +1792,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
+--- !u!1 &1673123900 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 126958, guid: fee6e72cd1263dd4da270821b063b779, type: 2}
+  m_PrefabInternal: {fileID: 1015900602}
+--- !u!95 &1673123901
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1673123900}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 367694c24ce92134489408701c8ac5d1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1716746001
 GameObject:
   m_ObjectHideFlags: 0
@@ -2108,7 +2129,7 @@ GameObject:
   - 59: {fileID: 1849479729}
   m_Layer: 0
   m_Name: Seesaw_wall
-  m_TagString: Untagged
+  m_TagString: MAP
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2119,10 +2140,10 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1849479724}
-  m_LocalRotation: {x: 0, y: 0, z: 0.17364822, w: 0.9848078}
-  m_LocalPosition: {x: -3.72, y: 0.44, z: 10}
-  m_LocalScale: {x: 0.2, y: 0.5, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 20}
+  m_LocalRotation: {x: 0, y: 0, z: -0.5735765, w: 0.819152}
+  m_LocalPosition: {x: -3.73, y: 0.47, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.2, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -70}
   m_Children: []
   m_Father: {fileID: 1377274066}
   m_RootOrder: 2
@@ -2181,7 +2202,7 @@ HingeJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.48793626, y: 1.197586, z: 0}
+  m_ConnectedAnchor: {x: -0.48782822, y: 1.3556403, z: 0}
   m_UseSpring: 0
   m_Spring:
     spring: 0
@@ -2216,7 +2237,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 16
+  m_Constraints: 56
   m_CollisionDetection: 0
 --- !u!1001 &1922893794
 Prefab:
@@ -2227,11 +2248,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 412030, guid: fc2aa80dce51e154a84f4f7c8f7a97e2, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -7.82
       objectReference: {fileID: 0}
     - target: {fileID: 412030, guid: fc2aa80dce51e154a84f4f7c8f7a97e2, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.58
       objectReference: {fileID: 0}
     - target: {fileID: 412030, guid: fc2aa80dce51e154a84f4f7c8f7a97e2, type: 2}
       propertyPath: m_LocalPosition.z
@@ -2261,6 +2282,10 @@ Prefab:
       propertyPath: m_UseGravity
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5456886, guid: fc2aa80dce51e154a84f4f7c8f7a97e2, type: 2}
+      propertyPath: m_Constraints
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fc2aa80dce51e154a84f4f7c8f7a97e2, type: 2}
   m_IsPrefabParent: 0
@@ -2277,7 +2302,7 @@ GameObject:
   - 23: {fileID: 2069476513}
   m_Layer: 0
   m_Name: Seesaw_base
-  m_TagString: Untagged
+  m_TagString: MAP
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2334,7 +2359,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2069476512}
   m_LocalRotation: {x: 0, y: 0, z: 0.38268346, w: 0.9238795}
-  m_LocalPosition: {x: 0, y: 0, z: 10}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 45}
   m_Children: []
