@@ -24,14 +24,18 @@ public class FieldManager : MonoBehaviour
 
     }
 
-    void OnTriggerEnter(Collider other)
+    void OnTriggerEnter(Collider c)
     {
-        print("Gravity Field - OnTriggerEnter : " + other.gameObject.name);
+        if(c.tag == "FALLING")
+        {
+            print("Gravity Field - OnCollisionEnter : " + c.gameObject.name);
+            c.GetComponent<Rigidbody>().drag = 5;
+        }
     }
 
-    void OnTriggerExit(Collider other)
+    void OnTriggerExit(Collider c)
     {
-        print("Gravity Field - OnCollisionExit : " + other.gameObject.name);
+        print("Gravity Field - OnCollisionExit : " + c.gameObject.name);
     }
 
     // Strengthened Field Activated : The texture of field is changed and visible, the collider is enabled

@@ -3,6 +3,7 @@ using System.Collections;
 
 public class CameraManager : MonoBehaviour
 {
+    float hoverAmount = 1.70f;
     Vector3 gap;
     Transform ballTrans;
     // Use this for initialization
@@ -15,6 +16,6 @@ public class CameraManager : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        transform.position = ballTrans.position + gap;
+        transform.position = ballTrans.position + gap + Vector3.up* hoverAmount;
     }
 }
