@@ -7,6 +7,8 @@ TagManager:
   - BALL
   - FIELD
   - MAP
+  - FALLING
+  - OBSTACLE
   layers:
   - Default
   - TransparentFX
