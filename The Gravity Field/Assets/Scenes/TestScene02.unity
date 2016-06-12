@@ -835,7 +835,7 @@ GameObject:
   - 54: {fileID: 718569090}
   m_Layer: 0
   m_Name: Seesaw_bar
-  m_TagString: MAP
+  m_TagString: OBSTACLE
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1512,6 +1512,10 @@ Prefab:
       propertyPath: m_Mass
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 126958, guid: fee6e72cd1263dd4da270821b063b779, type: 2}
+      propertyPath: m_TagString
+      value: FALLING
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fee6e72cd1263dd4da270821b063b779, type: 2}
   m_IsPrefabParent: 0
@@ -2129,7 +2133,7 @@ GameObject:
   - 59: {fileID: 1849479729}
   m_Layer: 0
   m_Name: Seesaw_wall
-  m_TagString: MAP
+  m_TagString: OBSTACLE
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2302,7 +2306,7 @@ GameObject:
   - 23: {fileID: 2069476513}
   m_Layer: 0
   m_Name: Seesaw_base
-  m_TagString: MAP
+  m_TagString: OBSTACLE
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
