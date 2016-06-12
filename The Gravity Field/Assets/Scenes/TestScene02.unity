@@ -599,7 +599,7 @@ GameObject:
   - 4: {fileID: 532690965}
   m_Layer: 0
   m_Name: FallingObjs
-  m_TagString: Untagged
+  m_TagString: FALLING
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1709,7 +1709,7 @@ GameObject:
   - 4: {fileID: 1377274066}
   m_Layer: 0
   m_Name: Seesaw
-  m_TagString: MAP
+  m_TagString: OBSTACLE
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
