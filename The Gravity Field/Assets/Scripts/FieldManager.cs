@@ -7,35 +7,42 @@ public class FieldManager : MonoBehaviour
     public Texture2D strTex, weakTex;
 
     FieldState fieldState = FieldState.NORMAL;
+    ArrayList colList = new ArrayList();
     Renderer fieldRenderer;
-    Collider collider;
+    Collider col;
+    GameObject ball;
+    float dragAmount = 4.0f, addForceAmount = 400f;
 
     // Use this for initialization
     void Start()
     {
         fieldRenderer = transform.GetComponent<Renderer>();
-        collider = transform.GetComponent<Collider>();
+        col = transform.GetComponent<Collider>();
+        ball = transform.parent.gameObject;
         DeactivateField();
-    }
-
-    // Update is called once per frame
-    void FixedUpdate()
-    {
-
     }
 
     void OnTriggerEnter(Collider c)
     {
+        // WEAKENED : Slow down the object, STRENGTHENED : Let the object fall down faster
         if(c.tag == "FALLING")
         {
-            print("Gravity Field - OnCollisionEnter : " + c.gameObject.name);
-            c.GetComponent<Rigidbody>().drag = 5;
+            colList.Add(c);
+            if (fieldState == FieldState.WEAKENED)
+                c.GetComponent<Rigidbody>().drag = dragAmount;
+            else if (fieldState == FieldState.STRENGTHENED)
+                c.GetComponent<Rigidbody>().AddForce(Vector3.down * addForceAmount);
         }
     }
 
     void OnTriggerExit(Collider c)
     {
-        print("Gravity Field - OnCollisionExit : " + c.gameObject.name);
+        if (c.tag == "FALLING")
+        {
+            colList.Remove(c);
+            if (fieldState == FieldState.WEAKENED)
+                c.GetComponent<Rigidbody>().drag = 0;   // Reset the speed of the object falling
+        }
     }
 
     // Strengthened Field Activated : The texture of field is changed and visible, the collider is enabled
@@ -46,7 +53,7 @@ public class FieldManager : MonoBehaviour
             fieldState = FieldState.STRENGTHENED;
             fieldRenderer.enabled = true;
             fieldRenderer.material.mainTexture = strTex;
-            collider.enabled = true;
+            col.enabled = true;
             StartCoroutine(WaitAndDeactivate(5.0f)); // Deactivate the field after 5 sec
         }
     }
@@ -59,7 +66,7 @@ public class FieldManager : MonoBehaviour
             fieldState = FieldState.WEAKENED;
             fieldRenderer.enabled = true;
             fieldRenderer.material.mainTexture = weakTex;
-            collider.enabled = true;
+            col.enabled = true;
             StartCoroutine(WaitAndDeactivate(5.0f)); // Deactivate the field after 5 sec
         }
     }
@@ -69,7 +76,18 @@ public class FieldManager : MonoBehaviour
     {
         fieldState = FieldState.NORMAL;
         fieldRenderer.enabled = false;
-        collider.enabled = false;
+        col.enabled = false;
+
+        // If there are colliders in colList, set the gravity of the colliders as normal state
+        if (colList.Count != 0)
+        {
+            foreach(Collider c in colList)
+            {
+                print("Delete " + c.name + " from colList");
+                c.GetComponent<Rigidbody>().drag = 0;
+            }
+            colList.Clear();
+        }
     }
 
     // Deactivate the field after 'waitTime' sec
