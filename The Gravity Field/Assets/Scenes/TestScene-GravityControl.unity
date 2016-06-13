@@ -792,6 +792,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66381c5ba7cb7444e805209c2cff2cb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &709914696 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 173276, guid: fc2aa80dce51e154a84f4f7c8f7a97e2, type: 2}
+  m_PrefabInternal: {fileID: 1922893794}
+--- !u!75 &709914697
+ConstantForce:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 709914696}
+  m_Enabled: 1
+  m_Force: {x: 0, y: -9.8, z: 0}
+  m_RelativeForce: {x: 0, y: 0, z: 0}
+  m_Torque: {x: 0, y: 0, z: 0}
+  m_RelativeTorque: {x: 0, y: 0, z: 0}
 --- !u!1 &793163832
 GameObject:
   m_ObjectHideFlags: 0
@@ -2104,7 +2119,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 5456886, guid: fc2aa80dce51e154a84f4f7c8f7a97e2, type: 2}
       propertyPath: m_UseGravity
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5456886, guid: fc2aa80dce51e154a84f4f7c8f7a97e2, type: 2}
       propertyPath: m_Constraints

@@ -4,7 +4,8 @@ using System.Collections;
 public class BallController : MonoBehaviour
 {
     Rigidbody rb;
-    Vector3 movement;
+    Vector3 movement, relForce;
+    FieldManager fm;
     int jumpSpeed = 350;
     int moveSpeed = 4;
     bool isJumping = false;
@@ -12,11 +13,13 @@ public class BallController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        fm = GetComponentInChildren<FieldManager>();
+        relForce = Vector3.zero;
     }
 
     void FixedUpdate()
     {
-        rb.AddForce(movement * 2.0f);
+        rb.AddForce(movement * 2.0f + relForce);
     }
 
     public void ResetMove()
@@ -43,4 +46,6 @@ public class BallController : MonoBehaviour
         if (isJumping && c.gameObject.tag == "MAP")
             isJumping = false;
     }
+
+    public void SetRelativeForce(Vector3 relForce) { this.relForce = relForce; }
 }

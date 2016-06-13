@@ -5,13 +5,13 @@ public enum FieldState { NORMAL, STRENGTHENED, WEAKENED }
 public class FieldManager : MonoBehaviour
 {
     public Texture2D strTex, weakTex;
-
-    FieldState fieldState = FieldState.NORMAL;
+    public FieldState fieldState = FieldState.NORMAL;
     ArrayList colList = new ArrayList();
     Renderer fieldRenderer;
     Collider col;
     GameObject ball;
     float dragAmount = 4.0f, addForceAmount = 400f;
+    float normalG = 0.0f, weakG = 6f, strG = -6f;
 
     // Use this for initialization
     void Start()
@@ -25,7 +25,7 @@ public class FieldManager : MonoBehaviour
     void OnTriggerEnter(Collider c)
     {
         // WEAKENED : Slow down the object, STRENGTHENED : Let the object fall down faster
-        if(c.tag == "FALLING")
+        if (c.tag == "FALLING")
         {
             colList.Add(c);
             if (fieldState == FieldState.WEAKENED)
@@ -54,6 +54,7 @@ public class FieldManager : MonoBehaviour
             fieldRenderer.enabled = true;
             fieldRenderer.material.mainTexture = strTex;
             col.enabled = true;
+            ball.GetComponent<BallController>().SetRelativeForce(new Vector3(0, strG, 0));
             StartCoroutine(WaitAndDeactivate(5.0f)); // Deactivate the field after 5 sec
         }
     }
@@ -67,6 +68,7 @@ public class FieldManager : MonoBehaviour
             fieldRenderer.enabled = true;
             fieldRenderer.material.mainTexture = weakTex;
             col.enabled = true;
+            ball.GetComponent<BallController>().SetRelativeForce(new Vector3(0, weakG, 0));
             StartCoroutine(WaitAndDeactivate(5.0f)); // Deactivate the field after 5 sec
         }
     }
@@ -77,11 +79,12 @@ public class FieldManager : MonoBehaviour
         fieldState = FieldState.NORMAL;
         fieldRenderer.enabled = false;
         col.enabled = false;
+        ball.GetComponent<BallController>().SetRelativeForce(new Vector3(0, normalG, 0));
 
         // If there are colliders in colList, set the gravity of the colliders as normal state
         if (colList.Count != 0)
         {
-            foreach(Collider c in colList)
+            foreach (Collider c in colList)
             {
                 print("Delete " + c.name + " from colList");
                 c.GetComponent<Rigidbody>().drag = 0;
