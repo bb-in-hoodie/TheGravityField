@@ -11,7 +11,7 @@ public class FieldManager : MonoBehaviour
     Collider col;
     GameObject ball;
     float dragAmount = 4.0f, addForceAmount = 400f;
-    float normalG = 0.0f, weakG = 6f, strG = -6f;
+    float normalG = 0.0f, weakG = 4f, strG = -6f;
 
     // Use this for initialization
     void Start()
