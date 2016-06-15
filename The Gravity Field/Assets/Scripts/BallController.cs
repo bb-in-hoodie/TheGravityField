@@ -20,6 +20,18 @@ public class BallController : MonoBehaviour
     void FixedUpdate()
     {
         rb.AddForce(movement * 2.0f + relForce);
+
+        float moveHorizontal = Input.GetAxis ("Horizontal");
+        // move left or right
+        if (moveHorizontal < 0) 
+            MoveLeft();
+        else if (moveHorizontal > 0)        
+            MoveRight();
+
+        // jump when you press space bar button
+        if (Input.GetButton("Jump")) 
+            jump();
+    
     }
 
     public void ResetMove()
