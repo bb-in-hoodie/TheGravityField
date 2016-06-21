@@ -1,8 +1,10 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class GameManager : MonoBehaviour
 {
+    public string nextLevel;
     Transform ball;
     CheckPointManager lastCheckPoint;
 
@@ -12,7 +14,6 @@ public class GameManager : MonoBehaviour
         Screen.orientation = ScreenOrientation.LandscapeLeft;
         lastCheckPoint = GameObject.Find("StartPoint").GetComponent<CheckPointManager>();
         ball = GameObject.Find("Ball").transform;
-        ball.position = lastCheckPoint.GetRespawnPoint().position;
     }
 
     // Update is called once per frame
@@ -29,7 +30,7 @@ public class GameManager : MonoBehaviour
 
     public void Clear()
     {
-        print("Clear");
+        SceneManager.LoadScene(nextLevel);
     }
 
     public void SetLastCheckPoint(CheckPointManager cpm) { lastCheckPoint = cpm; }

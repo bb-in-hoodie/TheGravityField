@@ -124,6 +124,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 11424724, guid: 417c4ca662b5b0c458a207de476a212e, type: 2}
+      propertyPath: nextLevel
+      value: TestScene-Points
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 417c4ca662b5b0c458a207de476a212e, type: 2}
   m_IsPrefabParent: 0
@@ -183,11 +187,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 412030, guid: fc2aa80dce51e154a84f4f7c8f7a97e2, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -5.06
       objectReference: {fileID: 0}
     - target: {fileID: 412030, guid: fc2aa80dce51e154a84f4f7c8f7a97e2, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 3.02
       objectReference: {fileID: 0}
     - target: {fileID: 412030, guid: fc2aa80dce51e154a84f4f7c8f7a97e2, type: 2}
       propertyPath: m_LocalPosition.z
