@@ -3,7 +3,7 @@ using System.Collections;
 
 public class CameraManager : MonoBehaviour
 {
-    float verFollow = 3.0f, horFollow = 10.0f, yGap = 0.15f,  zGap = -10.0f;
+    float verFollow = 3.0f, horFollow = 10.0f, yGap = 0.15f,  zGap = -30.0f;
     Transform ballTrans;
 
     // Use this for initialization
