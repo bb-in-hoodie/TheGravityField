@@ -55,7 +55,6 @@ public class FieldManager : MonoBehaviour
             fieldRenderer.material.mainTexture = strTex;
             col.enabled = true;
             ball.GetComponent<BallController>().SetRelativeForce(new Vector3(0, strG, 0));
-            StartCoroutine(WaitAndDeactivate(5.0f)); // Deactivate the field after 5 sec
         }
     }
 
@@ -69,7 +68,6 @@ public class FieldManager : MonoBehaviour
             fieldRenderer.material.mainTexture = weakTex;
             col.enabled = true;
             ball.GetComponent<BallController>().SetRelativeForce(new Vector3(0, weakG, 0));
-            StartCoroutine(WaitAndDeactivate(5.0f)); // Deactivate the field after 5 sec
         }
     }
 
@@ -91,12 +89,5 @@ public class FieldManager : MonoBehaviour
             }
             colList.Clear();
         }
-    }
-
-    // Deactivate the field after 'waitTime' sec
-    IEnumerator WaitAndDeactivate(float waitTime)
-    {
-        yield return new WaitForSeconds(waitTime);
-        DeactivateField();
     }
 }

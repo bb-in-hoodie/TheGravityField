@@ -8,6 +8,7 @@ public class BallController : MonoBehaviour
     FieldManager fm;
     int jumpSpeed = 350;
     int moveSpeed = 4;
+    float maxVelocity = 5.0f;
     bool isJumping = false;
 
     void Start()
@@ -28,10 +29,9 @@ public class BallController : MonoBehaviour
         else if (moveHorizontal > 0)        
             MoveRight();
 
-        // jump when you press space bar button
-        if (Input.GetButton("Jump")) 
-            jump();
-    
+        // Limit the speed of the ball
+        rb.velocity = new Vector3(Mathf.Clamp(rb.velocity.x, -maxVelocity, maxVelocity), rb.velocity.y, rb.velocity.z);
+
     }
 
     public void ResetMove()
@@ -42,7 +42,7 @@ public class BallController : MonoBehaviour
     public void MoveLeft() { movement.x = (-1) * moveSpeed; }
     public void MoveRight() { movement.x = moveSpeed; }
 
-    public void jump()
+    public void Jump()
     {
         // Jumping is only available when the ball is on the ground
         if (!isJumping)
@@ -55,7 +55,7 @@ public class BallController : MonoBehaviour
     void OnCollisionEnter(Collision c)
     {
         // If the ball hits the ground, let 'isJumping' be false
-        if (isJumping && c.gameObject.tag == "MAP")
+        if (isJumping && (c.gameObject.tag == "MAP" || c.gameObject.tag == "OBSTACLE"))
             isJumping = false;
     }
 
