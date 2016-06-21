@@ -26,12 +26,7 @@ public class BallController : MonoBehaviour
         if (moveHorizontal < 0) 
             MoveLeft();
         else if (moveHorizontal > 0)        
-            MoveRight();
-
-        // jump when you press space bar button
-        if (Input.GetButton("Jump")) 
-            jump();
-    
+            MoveRight();    
     }
 
     public void ResetMove()
@@ -42,7 +37,7 @@ public class BallController : MonoBehaviour
     public void MoveLeft() { movement.x = (-1) * moveSpeed; }
     public void MoveRight() { movement.x = moveSpeed; }
 
-    public void jump()
+    public void Jump()
     {
         // Jumping is only available when the ball is on the ground
         if (!isJumping)
