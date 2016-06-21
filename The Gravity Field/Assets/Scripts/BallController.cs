@@ -6,15 +6,19 @@ public class BallController : MonoBehaviour
     Rigidbody rb;
     Vector3 movement, relForce;
     FieldManager fm;
+    GameManager gm;
     int jumpSpeed = 350;
     int moveSpeed = 4;
     float maxVelocity = 5.0f;
     bool isJumping = false;
 
+    public bool kill = false;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         fm = GetComponentInChildren<FieldManager>();
+        gm = GameObject.Find("GameManager").GetComponent<GameManager>();
         relForce = Vector3.zero;
     }
 
@@ -32,6 +36,12 @@ public class BallController : MonoBehaviour
         // Limit the speed of the ball
         rb.velocity = new Vector3(Mathf.Clamp(rb.velocity.x, -maxVelocity, maxVelocity), rb.velocity.y, rb.velocity.z);
 
+        // Just for test
+        if(kill)
+        {
+            kill = false;
+            Dead();
+        }
     }
 
     public void ResetMove()
@@ -63,6 +73,16 @@ public class BallController : MonoBehaviour
 
     public void Dead()
     {
-        print("Ball dead");
+        GetComponent<Renderer>().enabled = false;
+        rb.velocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
+        transform.rotation = Quaternion.identity;
+        StartCoroutine("RequestRespawn");
+    }
+
+    IEnumerator RequestRespawn()
+    {
+        yield return new WaitForSeconds(1);
+        gm.RespawnBall();
     }
 }
