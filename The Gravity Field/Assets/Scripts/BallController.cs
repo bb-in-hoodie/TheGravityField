@@ -55,7 +55,7 @@ public class BallController : MonoBehaviour
     void OnCollisionEnter(Collision c)
     {
         // If the ball hits the ground, let 'isJumping' be false
-        if (isJumping && c.gameObject.tag == "MAP")
+        if (isJumping && c.gameObject.tag == "MAP" && c.gameObject.tag == "OBSTACLE")
             isJumping = false;
     }
 
