@@ -17,8 +17,9 @@ public class ButtonHandler : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
         fieldManager = ball.GetComponentInChildren<FieldManager>();
     }
 
-    void FixedUpdate()
+    void Update()
     {
+        // Get keyboard input
         if (Input.GetKeyDown(KeyCode.RightArrow))
             ballController.MoveRight();
         if (Input.GetKeyDown(KeyCode.LeftArrow))
@@ -30,10 +31,11 @@ public class ButtonHandler : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
         if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Space))
             ballController.Jump();
 
-        if (Input.GetKeyUp(KeyCode.RightArrow) || Input.GetKeyUp(KeyCode.LeftArrow) || Input.GetKeyUp(KeyCode.UpArrow) || Input.GetKeyUp(KeyCode.Space) )
-        {
+        if (Input.GetKeyUp(KeyCode.RightArrow) || Input.GetKeyUp(KeyCode.LeftArrow) || Input.GetKeyUp(KeyCode.UpArrow) || Input.GetKeyUp(KeyCode.Space))
             ballController.ResetMove();
-        }
+
+        if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.S))
+            fieldManager.DeactivateField();
     }
 
     public void OnPointerDown(PointerEventData eventData)
@@ -45,9 +47,9 @@ public class ButtonHandler : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
             ballController.MoveRight();
         if (buttonName == "Button_left")
             ballController.MoveLeft();
-        if (buttonName == "Button_gravity_up")
+        if (buttonName == "Button_gravity_weak")
             fieldManager.ActivateWeakField();
-        if (buttonName == "Button_gravity_down")
+        if (buttonName == "Button_gravity_str")
             fieldManager.ActivateStrField();
         if (buttonName == "Button_jump")
             ballController.Jump();
@@ -55,6 +57,11 @@ public class ButtonHandler : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
 
     public void OnPointerUp(PointerEventData eventData)
     {
-        ballController.ResetMove();
+        string buttonName = this.gameObject.name;
+
+        if (buttonName == "Button_gravity_str" || buttonName == "Button_gravity_weak")
+            fieldManager.DeactivateField();
+        else
+            ballController.ResetMove();
     }
 }
