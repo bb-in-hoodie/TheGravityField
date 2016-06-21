@@ -8,6 +8,7 @@ public class BallController : MonoBehaviour
     FieldManager fm;
     int jumpSpeed = 350;
     int moveSpeed = 4;
+    float maxVelocity = 5.0f;
     bool isJumping = false;
 
     void Start()
@@ -26,7 +27,11 @@ public class BallController : MonoBehaviour
         if (moveHorizontal < 0) 
             MoveLeft();
         else if (moveHorizontal > 0)        
-            MoveRight();    
+            MoveRight();
+
+        // Limit the speed of the ball
+        rb.velocity = new Vector3(Mathf.Clamp(rb.velocity.x, -maxVelocity, maxVelocity), rb.velocity.y, rb.velocity.z);
+
     }
 
     public void ResetMove()

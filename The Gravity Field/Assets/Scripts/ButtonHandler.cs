@@ -17,6 +17,25 @@ public class ButtonHandler : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
         fieldManager = ball.GetComponentInChildren<FieldManager>();
     }
 
+    void FixedUpdate()
+    {
+        if (Input.GetKeyDown(KeyCode.RightArrow))
+            ballController.MoveRight();
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
+            ballController.MoveLeft();
+        if (Input.GetKeyDown(KeyCode.W))
+            fieldManager.ActivateWeakField();
+        if (Input.GetKeyDown(KeyCode.S))
+            fieldManager.ActivateStrField();
+        if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Space))
+            ballController.Jump();
+
+        if (Input.GetKeyUp(KeyCode.RightArrow) || Input.GetKeyUp(KeyCode.LeftArrow) || Input.GetKeyUp(KeyCode.UpArrow) || Input.GetKeyUp(KeyCode.Space) )
+        {
+            ballController.ResetMove();
+        }
+    }
+
     public void OnPointerDown(PointerEventData eventData)
     {
         Debug.Log(this.gameObject.name + " Was Clicked. at: " + eventData.clickTime + "/" + eventData.clickCount + "times");
