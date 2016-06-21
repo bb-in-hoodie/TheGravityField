@@ -27,5 +27,10 @@ public class GameManager : MonoBehaviour
         ball.GetComponent<Renderer>().enabled = true;
     }
 
+    public void Clear()
+    {
+        print("Clear");
+    }
+
     public void SetLastCheckPoint(CheckPointManager cpm) { lastCheckPoint = cpm; }
 }
