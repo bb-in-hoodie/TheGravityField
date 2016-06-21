@@ -60,4 +60,9 @@ public class BallController : MonoBehaviour
     }
 
     public void SetRelativeForce(Vector3 relForce) { this.relForce = relForce; }
+
+    public void Dead()
+    {
+        print("Ball dead");
+    }
 }
