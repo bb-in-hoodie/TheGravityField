@@ -11,7 +11,8 @@ public class GeneratorManager : MonoBehaviour
     Transform targetPoint;
     public bool shouldStop = true;
     bool prevState = true;
-
+    bool mutexLock = false;
+    
     // Use this for initialization
     void Start()
     {
@@ -22,41 +23,36 @@ public class GeneratorManager : MonoBehaviour
     {
     	if(shouldStop != prevState)
     	{
-    		if (targetObject != null)
-            	StartCoroutine("CreateObject"); 
-    		prevState = shouldStop;
-    		
+            if (targetObject != null)
+                StartCoroutine("CreateObject"); 
+            prevState = shouldStop;
     	}
-
     }
-   
+
     IEnumerator CreateObject()
     {
-        while(shouldStop == false)
+
+        if(mutexLock == false)
         {
-            GameObject newObj = (GameObject) Instantiate(targetObject, targetPoint.position, Quaternion.identity);
-            yield return new WaitForSeconds(waitTime);
-            Destroy(newObj);
+            mutexLock = true;
+        
+            if(shouldStop == false)
+            {
+            	yield return new WaitForSeconds(waitTime);
+                GameObject newObj = (GameObject) Instantiate(targetObject, targetPoint.position, Quaternion.identity);
+                yield return new WaitForSeconds(waitTime);
+                Destroy(newObj);
+            }
+
+            mutexLock = false;
         }
-    }
-/*
-    public void OnFloorButtonPressed()
-    {
-        if (shootOnFBPressed)  // If shootOnFBPressed is true, dispenser shoot the target only when the floor button is pressed
+        else
         {
-            shouldStop = false;
-            StartCoroutine("CreateObject");
+            Debug.Log("Mutex lock");
         }
-        else  // If shootOnFBPressed is false and FB is pressed, It means that dispenser doesn't have to shoot the target anymore
-        {
-            shouldStop = true;
-        }
+
     }
 
-    public void OnFloorButtonReleased()
-    {
-        if (shootOnFBPressed)
-            shouldStop = true;
-    }
-    */
+   
+
 }

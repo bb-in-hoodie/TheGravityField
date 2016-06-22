@@ -21,7 +21,8 @@ public class SwitchManager : MonoBehaviour {
 
     void OnTriggerExit(Collider other)
     {
-    	if(other.tag == "BALL")
+    	if(other.tag == "BALL")    		
     		gen.shouldStop = true;
+    	
     }
 }
