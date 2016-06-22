@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using System;
 
@@ -25,6 +25,7 @@ public class GeneratorManager : MonoBehaviour
     		if (targetObject != null)
             	StartCoroutine("CreateObject"); 
     		prevState = shouldStop;
+    		
     	}
 
     }
@@ -35,8 +36,7 @@ public class GeneratorManager : MonoBehaviour
         {
             GameObject newObj = (GameObject) Instantiate(targetObject, targetPoint.position, Quaternion.identity);
             yield return new WaitForSeconds(waitTime);
-            if (shouldStop == false)
-                Destroy(newObj);
+            Destroy(newObj);
         }
     }
 /*
