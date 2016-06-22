@@ -5,6 +5,7 @@ public class Mover : MonoBehaviour
 {
     Rigidbody rb;
     public float speed;
+    public BallController other;
 
     void Start()
     {
@@ -21,6 +22,10 @@ public class Mover : MonoBehaviour
         if(col.gameObject.tag == "MAP")
         {
             Destroy(this.gameObject);
+        }
+        else if(col.gameObject.tag == "BALL")
+        {
+            col.gameObject.GetComponent<BallController>().Dead();
         }
     }
 }
