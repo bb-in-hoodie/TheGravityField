@@ -16,10 +16,10 @@ public class BreachableFloorManager : MonoBehaviour {
 
     void OnTriggerEnter(Collider col)
     {
-        if(col.tag == "BALL")
+        if(col.tag == "BALL" || col.tag == "FALLING")
             print(col.GetComponent<Rigidbody>().velocity);
 
-        if(col.tag == "BALL" && col.GetComponent<Rigidbody>().velocity.y < -velThres)
+        if( (col.tag == "BALL" || col.tag == "FALLING" ) && col.GetComponent<Rigidbody>().velocity.y < -velThres)
         {
             Destroy(transform.FindChild("Prop").gameObject);
             foreach (BFManager bfm in transform.GetComponentsInChildren<BFManager>())

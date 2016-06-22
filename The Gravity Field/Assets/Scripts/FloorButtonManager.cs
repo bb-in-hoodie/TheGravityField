@@ -5,7 +5,7 @@ enum floorBtnState { IDLE, DOWN, UP, PRESSED }
 
 public class FloorButtonManager : MonoBehaviour
 {
-    public GameObject fbInteractive;
+    public GameObject fbInteractive, fbInteractive2;
     float yLimit = 0.09f, yAmount = 0.01f;
     Vector3 initPos;
     floorBtnState curState = floorBtnState.IDLE;
@@ -48,6 +48,8 @@ public class FloorButtonManager : MonoBehaviour
         print("Floor Button Pressed");
         if(fbInteractive != null)
             fbInteractive.GetComponent<FBInteractive>().OnFloorButtonPressed();
+        if (fbInteractive2 != null)
+            fbInteractive2.GetComponent<FBInteractive>().OnFloorButtonPressed();
     }
 
     void OnFloorButtonReleased()
@@ -55,20 +57,31 @@ public class FloorButtonManager : MonoBehaviour
         print("Floor Button Released");
         if (fbInteractive != null)
             fbInteractive.GetComponent<FBInteractive>().OnFloorButtonReleased();
+        if (fbInteractive2 != null)
+            fbInteractive2.GetComponent<FBInteractive>().OnFloorButtonReleased();
     }
 
     void OnCollisionEnter(Collision col)
     {
         foreach (ContactPoint cp in col.contacts)
         {
-            if (cp.otherCollider.tag == "BALL" || cp.otherCollider.tag == "FALLING")
+            if (cp.otherCollider.tag == "BALL" || cp.otherCollider.tag == "FALLING" || cp.otherCollider.tag == "OBSTACLE" )
+                curState = floorBtnState.DOWN;
+        }
+    }
+
+    void OnCollisionStay(Collision col)
+    {
+        foreach (ContactPoint cp in col.contacts)
+        {
+            if ( curState == floorBtnState.IDLE && (cp.otherCollider.tag == "BALL" || cp.otherCollider.tag == "FALLING" || cp.otherCollider.tag == "OBSTACLE") )
                 curState = floorBtnState.DOWN;
         }
     }
 
     void OnCollisionExit(Collision col)
     {
-        if (col.collider.tag == "BALL" || col.collider.tag == "FALLING")
+        if (col.collider.tag == "BALL" || col.collider.tag == "FALLING" || col.collider.tag == "OBSTACLE")
             curState = floorBtnState.UP;
     }
 }
