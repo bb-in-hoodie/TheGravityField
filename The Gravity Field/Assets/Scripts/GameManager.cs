@@ -28,8 +28,11 @@ public class GameManager : MonoBehaviour
         ball.GetComponent<Renderer>().enabled = true;
     }
 
-    public void Clear()
+    public void Clear() { StartCoroutine("LoadNextScene"); }
+
+    IEnumerator LoadNextScene()
     {
+        yield return new WaitForSeconds(1);
         SceneManager.LoadScene(nextLevel);
     }
 
