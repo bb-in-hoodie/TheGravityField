@@ -855,7 +855,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetObject: {fileID: 1377990998}
   waitTime: 3
-  shouldStop: 0
+  shouldStop: 1
 --- !u!23 &1391630238
 MeshRenderer:
   m_ObjectHideFlags: 0

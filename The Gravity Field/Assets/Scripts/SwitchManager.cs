@@ -11,21 +11,6 @@ public class SwitchManager : MonoBehaviour {
     {
         gen = GameObject.Find("Generator").GetComponent<GeneratorManager>();
     }
-	
-	void OnCollisionEnter(Collision col)
-    {
-        foreach (ContactPoint cp in col.contacts)
-        {
-            if (cp.otherCollider.tag == "BALL" || cp.otherCollider.tag == "FALLING" || cp.otherCollider.tag == "OBSTACLE" )
-                gen.shouldStop = false;
-        }
-    }
-
-    void OnCollisionExit(Collision col)
-    {
-        if (col.collider.tag == "BALL" || col.collider.tag == "FALLING" || col.collider.tag == "OBSTACLE")
-            gen.shouldStop = true;
-    }
 
 
     void OnTriggerEnter(Collider other)

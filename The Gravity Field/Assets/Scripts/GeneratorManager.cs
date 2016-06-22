@@ -10,14 +10,23 @@ public class GeneratorManager : MonoBehaviour
 
     Transform targetPoint;
     public bool shouldStop = true;
+    bool prevState = true;
 
     // Use this for initialization
     void Start()
     {
         targetPoint = transform.FindChild("TargetPoint");
+    }
 
-        if (targetObject != null)
-            StartCoroutine("CreateObject");
+    void FixedUpdate()
+    {
+    	if(shouldStop != prevState)
+    	{
+    		if (targetObject != null)
+            	StartCoroutine("CreateObject"); 
+    		prevState = shouldStop;
+    	}
+
     }
    
     IEnumerator CreateObject()
