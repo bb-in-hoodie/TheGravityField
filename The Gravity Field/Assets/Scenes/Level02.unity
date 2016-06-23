@@ -2417,7 +2417,7 @@ Prefab:
       objectReference: {fileID: 2100000, guid: a85c0e9ee0ffe4c45864ab5f0798d4ea, type: 2}
     - target: {fileID: 11401274, guid: 61690d74f96e3544dacb0c6163c7fb6b, type: 2}
       propertyPath: velThres
-      value: 10.8
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 61690d74f96e3544dacb0c6163c7fb6b, type: 2}
@@ -3466,11 +3466,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 412030, guid: fc2aa80dce51e154a84f4f7c8f7a97e2, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 101.02
+      value: -5.58
       objectReference: {fileID: 0}
     - target: {fileID: 412030, guid: fc2aa80dce51e154a84f4f7c8f7a97e2, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0.08
+      value: 2.92
       objectReference: {fileID: 0}
     - target: {fileID: 412030, guid: fc2aa80dce51e154a84f4f7c8f7a97e2, type: 2}
       propertyPath: m_LocalPosition.z
@@ -3494,7 +3494,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 412030, guid: fc2aa80dce51e154a84f4f7c8f7a97e2, type: 2}
       propertyPath: m_RootOrder
-      value: 20
+      value: 27
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fc2aa80dce51e154a84f4f7c8f7a97e2, type: 2}
