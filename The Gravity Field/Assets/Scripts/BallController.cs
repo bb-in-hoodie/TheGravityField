@@ -73,7 +73,7 @@ public class BallController : MonoBehaviour
 
     public void Dead()
     {
-        Debug.Log("hit");
+        Debug.Log("Dead");
         GetComponent<Renderer>().enabled = false;
         rb.velocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
