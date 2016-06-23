@@ -9,6 +9,7 @@ public class DispenserManager : MonoBehaviour, FBInteractive
     public bool shootOnFBPressed = false, onlyOne = true;
 
     Transform targetPoint;
+    GameObject oldObj = null;
     bool shouldStop = false;
 
     // Use this for initialization
@@ -35,12 +36,23 @@ public class DispenserManager : MonoBehaviour, FBInteractive
         }
     }
 
+    void ShootOnce()
+    {
+        if(oldObj != null)
+            Destroy(oldObj);
+
+        oldObj = (GameObject)Instantiate(targetObject, targetPoint.position, Quaternion.identity);
+    }
+
     public void OnFloorButtonPressed()
     {
         if (shootOnFBPressed)  // If shootOnFBPressed is true, dispenser shoot the target only when the floor button is pressed
         {
             shouldStop = false;
-            StartCoroutine("CreateObject");
+            if (waitTime == -1)
+                ShootOnce();
+            else
+                StartCoroutine("CreateObject");
         }
         else  // If shootOnFBPressed is false and FB is pressed, It means that dispenser doesn't have to shoot the target anymore
         {
