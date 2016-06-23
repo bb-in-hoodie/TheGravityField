@@ -31,7 +31,7 @@ public class ButtonHandler : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
         if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Space))
             ballController.Jump();
 
-        if (Input.GetKeyUp(KeyCode.RightArrow) || Input.GetKeyUp(KeyCode.LeftArrow) || Input.GetKeyUp(KeyCode.UpArrow) || Input.GetKeyUp(KeyCode.Space))
+        if (Input.GetKeyUp(KeyCode.RightArrow) || Input.GetKeyUp(KeyCode.LeftArrow))
             ballController.ResetMove();
 
         if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.S))
@@ -61,7 +61,7 @@ public class ButtonHandler : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
 
         if (buttonName == "Button_gravity_str" || buttonName == "Button_gravity_weak")
             fieldManager.DeactivateField();
-        else
+        else if (buttonName == "Button_right" || buttonName == "Button_left")
             ballController.ResetMove();
     }
 }

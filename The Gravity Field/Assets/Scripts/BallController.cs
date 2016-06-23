@@ -3,10 +3,12 @@ using System.Collections;
 
 public class BallController : MonoBehaviour
 {
+    public Material matIdle, matWeak, matStr;
     Rigidbody rb;
     Vector3 movement, relForce;
     FieldManager fm;
     GameManager gm;
+    Renderer ren;
     int jumpSpeed = 350;
     int moveSpeed = 4;
     float maxVelocity = 5.0f;
@@ -19,6 +21,7 @@ public class BallController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         fm = GetComponentInChildren<FieldManager>();
         gm = GameObject.Find("GameManager").GetComponent<GameManager>();
+        ren = GetComponent<Renderer>();
         relForce = Vector3.zero;
     }
 
@@ -85,5 +88,21 @@ public class BallController : MonoBehaviour
     {
         yield return new WaitForSeconds(1);
         gm.RespawnBall();
+    }
+
+    public void SetMaterial(int i)
+    {
+        switch(i)
+        {
+            case 0:
+                ren.material = matIdle;
+                break;
+            case 1:
+                ren.material = matWeak;
+                break;
+            case 2:
+                ren.material = matStr;
+                break;
+        }
     }
 }
