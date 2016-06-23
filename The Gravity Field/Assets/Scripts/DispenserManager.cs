@@ -5,8 +5,8 @@ using System;
 public class DispenserManager : MonoBehaviour, FBInteractive
 {
     public GameObject targetObject;
-    public float waitTime = 3.0f;
-    public bool shootOnFBPressed = false;
+    public float waitTime = 3.0f, startTime = 0.0f;
+    public bool shootOnFBPressed = false, onlyOne = true;
 
     Transform targetPoint;
     bool shouldStop = false;
@@ -17,18 +17,20 @@ public class DispenserManager : MonoBehaviour, FBInteractive
         targetPoint = transform.FindChild("TargetPoint");
         if (shootOnFBPressed)
             shouldStop = true;
-
+        
         if (shootOnFBPressed == false && targetObject != null)
             StartCoroutine("CreateObject");
     }
-   
+    
+
     IEnumerator CreateObject()
     {
-        while(shouldStop == false)
+        yield return new WaitForSeconds(startTime);
+        while (shouldStop == false)
         {
-            GameObject newObj = (GameObject) Instantiate(targetObject, targetPoint.position, Quaternion.identity);
+            GameObject newObj = (GameObject)Instantiate(targetObject, targetPoint.position, Quaternion.identity);
             yield return new WaitForSeconds(waitTime);
-            if (shouldStop == false)
+            if (shouldStop == false && onlyOne == true)
                 Destroy(newObj);
         }
     }

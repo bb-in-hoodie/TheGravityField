@@ -4,12 +4,13 @@ using System.Collections;
 public class Mover : MonoBehaviour
 {
     Rigidbody rb;
+    FieldManager fm;
     public float speed;
-    public BallController other;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        fm = GameObject.Find("Field").GetComponent<FieldManager>();
     }
     void FixedUpdate()
     {
@@ -17,15 +18,11 @@ public class Mover : MonoBehaviour
     }
 
     void OnCollisionEnter (Collision col)
-    {
-        
-        if(col.gameObject.tag == "MAP")
-        {
-            Destroy(this.gameObject);
-        }
-        else if(col.gameObject.tag == "BALL")
-        {
+    {        
+        if(col.gameObject.tag == "BALL" && col.gameObject.GetComponent<BallController>().GetIsDead() == false)
             col.gameObject.GetComponent<BallController>().Dead();
-        }
+
+        fm.RemoveFromList(gameObject.GetComponent<Collider>());
+        Destroy(this.gameObject);
     }
 }

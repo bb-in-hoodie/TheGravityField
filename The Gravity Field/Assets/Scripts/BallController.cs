@@ -12,7 +12,7 @@ public class BallController : MonoBehaviour
     int jumpSpeed = 350;
     int moveSpeed = 4;
     float maxVelocity = 5.0f;
-    bool isJumping = false;
+    bool isJumping = false, isDead = false;
 
     public bool kill = false;
 
@@ -76,6 +76,7 @@ public class BallController : MonoBehaviour
 
     public void Dead()
     {
+        isDead = true;
         Debug.Log("Dead");
         GetComponent<Renderer>().enabled = false;
         rb.velocity = Vector3.zero;
@@ -88,6 +89,7 @@ public class BallController : MonoBehaviour
     {
         yield return new WaitForSeconds(1);
         gm.RespawnBall();
+        isDead = false;
     }
 
     public void SetMaterial(int i)
@@ -105,4 +107,6 @@ public class BallController : MonoBehaviour
                 break;
         }
     }
+
+    public bool GetIsDead() { return isDead; }
 }
