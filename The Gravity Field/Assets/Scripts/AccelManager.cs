@@ -17,7 +17,8 @@ public class AccelManager : MonoBehaviour
 	
 	// Update is called once per frame
 	void Update () {
-
+        if(Input.GetKeyDown("q"))
+            targetObj.GetComponent<AccelInteractive>().OnAccelActive();
     }
     
 

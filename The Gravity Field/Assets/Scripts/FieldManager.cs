@@ -53,6 +53,7 @@ public class FieldManager : MonoBehaviour
             fieldState = FieldState.STRENGTHENED;
             fieldRenderer.enabled = true;
             fieldRenderer.material.mainTexture = strTex;
+            ball.GetComponent<BallController>().SetMaterial(2);
             col.enabled = true;
             ball.GetComponent<BallController>().SetRelativeForce(new Vector3(0, strG, 0));
         }
@@ -66,6 +67,7 @@ public class FieldManager : MonoBehaviour
             fieldState = FieldState.WEAKENED;
             fieldRenderer.enabled = true;
             fieldRenderer.material.mainTexture = weakTex;
+            ball.GetComponent<BallController>().SetMaterial(1);
             col.enabled = true;
             ball.GetComponent<BallController>().SetRelativeForce(new Vector3(0, weakG, 0));
         }
@@ -89,5 +91,6 @@ public class FieldManager : MonoBehaviour
             }
             colList.Clear();
         }
+        ball.GetComponent<BallController>().SetMaterial(0);
     }
 }

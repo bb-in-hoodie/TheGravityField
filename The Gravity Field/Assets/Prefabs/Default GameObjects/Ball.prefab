@@ -158,6 +158,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10ec8d80a508cd14388f92fdd3f26429, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  matIdle: {fileID: 2100000, guid: d4fafda06d69533428a191124ac6b3b3, type: 2}
+  matWeak: {fileID: 2100000, guid: 07e3cc40721bbf0478caf122905bdb1a, type: 2}
+  matStr: {fileID: 2100000, guid: 560e9951a8e29844bb614c18616559ee, type: 2}
+  kill: 0
 --- !u!114 &11457172
 MonoBehaviour:
   m_ObjectHideFlags: 1
