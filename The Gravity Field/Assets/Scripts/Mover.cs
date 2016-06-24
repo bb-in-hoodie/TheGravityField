@@ -18,9 +18,11 @@ public class Mover : MonoBehaviour
     }
 
     void OnCollisionEnter (Collision col)
-    {        
-        if(col.gameObject.tag == "BALL" && col.gameObject.GetComponent<BallController>().GetIsDead() == false)
+    {
+        if (col.gameObject.tag == "BALL" && col.gameObject.GetComponent<BallController>().GetIsDead() == false)
             col.gameObject.GetComponent<BallController>().Dead();
+        else if (col.gameObject.tag == "FALLING")
+            Destroy(col.gameObject);
 
         fm.RemoveFromList(gameObject.GetComponent<Collider>());
         Destroy(this.gameObject);

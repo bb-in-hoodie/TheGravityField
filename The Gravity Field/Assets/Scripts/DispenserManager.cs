@@ -29,7 +29,6 @@ public class DispenserManager : MonoBehaviour, FBInteractive
         yield return new WaitForSeconds(startTime);
         while (shouldStop == false)
         {
-            print(gameObject.name + " : asdas");
             GameObject newObj = (GameObject)Instantiate(targetObject, targetPoint.position, Quaternion.identity);
             yield return new WaitForSeconds(waitTime);
             if (shouldStop == false && onlyOne == true)
