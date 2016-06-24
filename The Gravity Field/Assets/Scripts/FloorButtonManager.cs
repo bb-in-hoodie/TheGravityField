@@ -5,7 +5,7 @@ enum floorBtnState { IDLE, DOWN, UP, PRESSED }
 
 public class FloorButtonManager : MonoBehaviour
 {
-    public GameObject fbInteractive, fbInteractive2;
+    public GameObject fbInteractive, fbInteractive2, fbInteractive3, fbInteractive4, fbInteractive5;
     float yLimit = 0.09f, yAmount = 0.01f;
     Vector3 initPos;
     floorBtnState curState = floorBtnState.IDLE;
@@ -50,6 +50,12 @@ public class FloorButtonManager : MonoBehaviour
             fbInteractive.GetComponent<FBInteractive>().OnFloorButtonPressed();
         if (fbInteractive2 != null)
             fbInteractive2.GetComponent<FBInteractive>().OnFloorButtonPressed();
+        if (fbInteractive3 != null)
+            fbInteractive3.GetComponent<FBInteractive>().OnFloorButtonPressed();
+        if (fbInteractive4 != null)
+            fbInteractive4.GetComponent<FBInteractive>().OnFloorButtonPressed();
+        if (fbInteractive5 != null)
+            fbInteractive5.GetComponent<FBInteractive>().OnFloorButtonPressed();
     }
 
     void OnFloorButtonReleased()
@@ -59,6 +65,12 @@ public class FloorButtonManager : MonoBehaviour
             fbInteractive.GetComponent<FBInteractive>().OnFloorButtonReleased();
         if (fbInteractive2 != null)
             fbInteractive2.GetComponent<FBInteractive>().OnFloorButtonReleased();
+        if (fbInteractive3 != null)
+            fbInteractive3.GetComponent<FBInteractive>().OnFloorButtonReleased();
+        if (fbInteractive4 != null)
+            fbInteractive4.GetComponent<FBInteractive>().OnFloorButtonReleased();
+        if (fbInteractive5 != null)
+            fbInteractive5.GetComponent<FBInteractive>().OnFloorButtonReleased();
     }
 
     void OnCollisionEnter(Collision col)

@@ -28,9 +28,9 @@ public class FieldManager : MonoBehaviour
         if (c.tag == "FALLING")
         {
             colList.Add(c);
-            if (fieldState == FieldState.WEAKENED)
+            if (fieldState == FieldState.WEAKENED && c != null)
                 c.GetComponent<Rigidbody>().drag = dragAmount;
-            else if (fieldState == FieldState.STRENGTHENED)
+            else if (fieldState == FieldState.STRENGTHENED && c != null)
                 c.GetComponent<Rigidbody>().AddForce(Vector3.down * addForceAmount);
         }
     }
@@ -40,7 +40,7 @@ public class FieldManager : MonoBehaviour
         if (c.tag == "FALLING")
         {
             colList.Remove(c);
-            if (fieldState == FieldState.WEAKENED)
+            if (fieldState == FieldState.WEAKENED && c != null)
                 c.GetComponent<Rigidbody>().drag = 0;   // Reset the speed of the object falling
         }
     }
@@ -86,11 +86,16 @@ public class FieldManager : MonoBehaviour
         {
             foreach (Collider c in colList)
             {
-                print("Delete " + c.name + " from colList");
-                c.GetComponent<Rigidbody>().drag = 0;
+                if (c != null)
+                {
+                    print("Delete " + c.name + " from colList");
+                    c.GetComponent<Rigidbody>().drag = 0;
+                }
             }
             colList.Clear();
         }
         ball.GetComponent<BallController>().SetMaterial(0);
     }
+
+    public void RemoveFromList(Collider c) { colList.Remove(c); }
 }
